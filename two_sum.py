@@ -5,10 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        prevMap = {}
         for i in range(len(nums)):
-            for j in range(len(nums)):
-                if i!=j:
-                    if nums[i] + nums[j] == target:
-                        return [i,j]
-            
+            if (target - nums[i]) in prevMap:
+                return [prevMap[target - nums[i]],i]
+            if nums[i] not in prevMap:
+                prevMap[nums[i]] = i
+             
+
         
