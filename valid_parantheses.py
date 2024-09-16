@@ -7,13 +7,13 @@ class Solution(object):
         stack = []
         pMap = {"}":"{","]":"[",")":"("}
         for p in s:
-            if p == "(" or p == "[" or p == "{":
-                stack.append(p)
-            if p == ")" or p == "]" or p == "}":
+            if p in pMap:
                 if stack and stack[-1] == pMap[p]:
                     stack.pop()
                 else :
                     return False
+            else :
+                stack.append(p)
         if not stack:
             return True
         
