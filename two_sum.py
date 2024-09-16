@@ -6,11 +6,11 @@ class Solution(object):
         :rtype: List[int]
         """
         prevMap = {}
-        for i in range(len(nums)):
-            if (target - nums[i]) in prevMap:
-                return [prevMap[target - nums[i]],i]
-            if nums[i] not in prevMap:
-                prevMap[nums[i]] = i
+        for i,n in enumerate(nums):
+            diff = target - n
+            if diff in prevMap:
+                return [prevMap[diff],i]
+            prevMap[n] = i
              
 
         
