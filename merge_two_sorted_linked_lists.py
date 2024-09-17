@@ -10,25 +10,23 @@ class Solution(object):
         :type list2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        mergedList = ListNode(0,None)
-        curr = mergedList
-        curr1 = list1
-        curr2 = list2
-        while (curr1 is not None) and (curr2 is not None):
-            while curr1 and curr2 and curr1.val <= curr2.val:
-                curr.next = ListNode(curr1.val,None)
-                curr = curr.next
-                curr1 = curr1.next
-            while curr1 and curr2 and curr2.val <= curr1.val:
-                curr.next = ListNode(curr2.val,None)
-                curr = curr.next
-                curr2 = curr2.next
-        if curr1:
-            curr.next = curr1
-        if curr2:
-            curr.next = curr2
-        return mergedList.next 
+        l1 = list1
+        l2 = list2
+        dummy = ListNode()
+        tail = dummy
+        while l1 and l2:
+            if l1.val < l2.val:
+                tail.next = l1
+                l1 = l1.next
+            else:
+                tail.next = l2
+                l2 = l2.next
+            tail = tail.next   
 
+        if l1:
+            tail.next = l1
+        if l2:
+            tail.next = l2
+        return dummy.next
 
-                
         
