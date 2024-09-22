@@ -10,13 +10,13 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-        listOfNodes = []
-        curr = head
-        while curr:
-            if curr in listOfNodes:
+        slow,fast = head,head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
                 return True
-            listOfNodes.append(curr)
-            curr = curr.next
+        return False
 
             
 
