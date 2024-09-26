@@ -4,12 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        numMap = {}
+        hashset = set()
+
         for n in nums:
-            numMap[n] = 1+numMap.get(n,0)
-        
-        for v in numMap.values():
-            if v > 1:
+            if n in hashset:
                 return True
+            hashset.add(n)
         return False
-        
