@@ -11,18 +11,18 @@ class Solution(object):
                 zeroes += 1
             if n != 0:
                 product = product*n
-        newList = []
-        for n in nums:
+        #newList = []
+        for j,n in enumerate(nums):
             if n != 0 and zeroes == 0:
-                newNum = product/n
+                nums[j] = product/n
             elif n != 0 and zeroes > 0:
-                newNum = 0
+                nums[j] = 0
             elif n == 0 and zeroes-1 > 0:
-                newNum = 0
+                nums[j] = 0
             elif n == 0 and zeroes -1 == 0:
-                newNum = product
-            newList.append(newNum)
-        return newList
+                nums[j] = product
+            #newList.append(newNum)
+        return nums
             
 
 
