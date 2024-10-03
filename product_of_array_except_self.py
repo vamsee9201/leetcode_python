@@ -4,13 +4,26 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+        zeroes = 0
+        product = 1
+        for n in nums:
+            if n == 0:
+                zeroes += 1
+            if n != 0:
+                product = product*n
         newList = []
-        for i,n in enumerate(nums):
-            product = 1
-            for j,num in enumerate(nums):
-                if i != j:
-                    product = product*num
-            newList.append(product)
+        for n in nums:
+            if n != 0 and zeroes == 0:
+                newNum = product/n
+            elif n != 0 and zeroes > 0:
+                newNum = 0
+            elif n == 0 and zeroes-1 > 0:
+                newNum = 0
+            elif n == 0 and zeroes -1 == 0:
+                newNum = product
+            newList.append(newNum)
         return newList
+            
+
 
         
