@@ -4,26 +4,13 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        zeroes = 0
-        product = 1
-        for n in nums:
-            if n == 0:
-                zeroes += 1
-            if n != 0:
-                product = product*n
-        #newList = []
-        for j,n in enumerate(nums):
-            if n != 0 and zeroes == 0:
-                nums[j] = product/n
-            elif n != 0 and zeroes > 0:
-                nums[j] = 0
-            elif n == 0 and zeroes-1 > 0:
-                nums[j] = 0
-            elif n == 0 and zeroes -1 == 0:
-                nums[j] = product
-            #newList.append(newNum)
-        return nums
-            
-
-
-        
+        res = [1]*len(nums)
+        prefix = 1
+        for i in range(len(nums)):
+            res[i] = prefix
+            prefix *= nums[i]
+        postfix = 1
+        for j in range(len(nums)-1,-1,-1):
+            res[j] *= postfix
+            postfix *= nums[j]
+        return res
