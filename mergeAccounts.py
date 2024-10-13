@@ -40,7 +40,7 @@ class Solution(object):
         emailGroup = defaultdict(list)
         for e,i in emailToAcc.items():
             leader = uf.find(i)
-            emailGroup[i].append(e)
+            emailGroup[leader].append(e)
 
         #create a result
         res = []
