@@ -4,18 +4,17 @@ class Solution(object):
         :type nums: List[int]
         :rtype: None Do not return anything, modify nums in-place instead.
         """
-        zero = []
-        one = []
-        two = []
+        zero = 0
+        one = 0
+        two = 0
         for num in nums:
             if num == 0:
-                zero.append(num)
-        print(zero)
-        for num in nums:
+                zero += 1
             if num == 1:
-                one.append(num)
-        for num in nums:
+                one += 1
             if num == 2:
-                two.append(num)
-        nums[:] = zero+one+two
+                two += 1
+        
+        nums[:] = [0]*zero + [1]*one + [2]*two
+            
         
