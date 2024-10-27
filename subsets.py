@@ -4,17 +4,19 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        res = []
         subset = []
-        for i in range(len(nums)):
-            for j in range(len(nums)):
-                if j > i:
-                    toAdd = [nums[i],nums[j]]
-                    subset.append(toAdd)
-        for n in nums:
-            subset.append([n])
-        subset.append([])
-        if nums not in subset :
-            subset.append(nums)
-        else:
-            pass
-        return subset
+
+        def dfs(i):
+            if i >= len(nums):
+                res.append(subset[:])
+                return
+
+            subset.append(nums[i])
+            dfs(i+1)
+
+            subset.pop()
+            dfs(i+1)
+
+        dfs(0)
+        return res
