@@ -5,4 +5,4 @@ class Solution(object):
         :type p: str
         :rtype: List[int]
         """
-        
+        return 0
