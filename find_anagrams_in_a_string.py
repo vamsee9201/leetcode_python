@@ -5,5 +5,7 @@ class Solution(object):
         :type p: str
         :rtype: List[int]
         """
-        #dummy
-        return 0
+        checkSet = set()
+        res = []
+        for c in s:
+            
